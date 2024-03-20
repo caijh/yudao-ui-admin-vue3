@@ -10,8 +10,8 @@
           title="销售额"
           prefix="￥"
           ::decimals="2"
-          :value="fenToYuan(orderComparison?.value?.orderPayPrice || 0)"
-          :reference="fenToYuan(orderComparison?.reference?.orderPayPrice || 0)"
+          :value="toNumber(fenToYuan(orderComparison?.value?.orderPayPrice || 0))"
+          :reference="toNumber(fenToYuan(orderComparison?.reference?.orderPayPrice || 0))"
         />
       </el-col>
       <el-col :md="6" :sm="12" :xs="24" :loading="loading">
@@ -26,8 +26,8 @@
         <ComparisonCard
           tag="今日"
           title="订单量"
-          :value="fenToYuan(orderComparison?.value?.orderPayCount || 0)"
-          :reference="fenToYuan(orderComparison?.reference?.orderPayCount || 0)"
+          :value="orderComparison?.value?.orderPayCount"
+          :reference="orderComparison?.reference?.orderPayCount"
         />
       </el-col>
       <el-col :md="6" :sm="12" :xs="24" :loading="loading">
@@ -79,6 +79,7 @@ import ShortcutCard from './components/ShortcutCard.vue'
 import TradeTrendCard from './components/TradeTrendCard.vue'
 import MemberTerminalCard from '@/views/mall/statistics/member/components/MemberTerminalCard.vue'
 import MemberFunnelCard from '@/views/mall/statistics/member/components/MemberFunnelCard.vue'
+import { toNumber } from "lodash-es";
 
 /** 商城首页 */
 defineOptions({ name: 'MallHome' })

@@ -294,7 +294,7 @@ export const convertToInteger = (num: number | string | undefined): number => {
 /**
  * 元转分
  */
-export const yuanToFen = (amount: string | number): number => {
+export const yuanToFen = (amount: string | number | undefined): number => {
   return convertToInteger(amount)
 }
 
